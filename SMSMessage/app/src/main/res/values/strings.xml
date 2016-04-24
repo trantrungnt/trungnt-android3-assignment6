@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SMSMessage</string>
+    <string name="app_name">SMS Message</string>
     <string name="label_button_close">Close</string>
     <string name="label_button_send">Send</string>
 </resources>
