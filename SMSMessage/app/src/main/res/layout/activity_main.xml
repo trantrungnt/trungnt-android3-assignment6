@@ -9,8 +9,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="trungnt.mad3.techkids.smsmessage.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <ListView
+        android:id="@+id/lvDisplaySMSList"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lvDisplaySMSList_height">
+    </ListView>
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_below="@id/lvDisplaySMSList"
+        android:text="@string/label_button_close"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height" />
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_below="@id/lvDisplaySMSList"
+        android:layout_toRightOf="@id/btnClose"
+        android:text="@string/label_button_send"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height" />
+
+
 </RelativeLayout>
