@@ -12,3 +12,6 @@
 + Bộ công cụ Android Studio 2.0
 + Máy ảo Genymotion với Hệ điều hành Android version 4.3
 + Máy thật Samsumg Glaxy S3 với Hệ điều hành Android version 4.3
+
+##Tham khảo
++ [Receive SMS Message](http://javapapers.com/android/android-receive-sms-tutorial/)
