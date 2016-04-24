@@ -1,6 +1,8 @@
 package trungnt.mad3.techkids.smsmessage;
 
 import android.content.Context;
+import android.telephony.SmsMessage;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -16,6 +18,7 @@ public class ListSMSMessageAdapter extends BaseAdapter {
     private TextView txtPhone, txtContentSMSMessage;
     private Context mContext;
     private int layoutItemID;
+    private SMSMessage oSMSMessage;
 
     @Override
     public int getCount() {
@@ -34,7 +37,18 @@ public class ListSMSMessageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        oSMSMessage = getItem(position);
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.sms_message_template, parent, false);
+        }
+
+        txtPhone = (TextView) convertView.findViewById(R.id.tvPhone);
+        txtContentSMSMessage = (TextView) convertView.findViewById(R.id.tvContentSMS);
+        txtPhone.setText(oSMSMessage.getPhone().toString());
+        txtContentSMSMessage.setText(oSMSMessage.getContentSMS().toString());
+
+        return convertView;
     }
 
     public ListSMSMessageAdapter(Context mContext, int layoutItemID, ArrayList<SMSMessage> arrListSMSMessage)
