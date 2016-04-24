@@ -1,8 +1,10 @@
 package trungnt.mad3.techkids.smsmessage;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -11,6 +13,9 @@ import java.util.ArrayList;
  */
 public class ListSMSMessageAdapter extends BaseAdapter {
     private ArrayList<SMSMessage> arrListSMSMessage;
+    private TextView txtPhone, txtContentSMSMessage;
+    private Context mContext;
+    private int layoutItemID;
 
     @Override
     public int getCount() {
@@ -30,5 +35,12 @@ public class ListSMSMessageAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         return null;
+    }
+
+    public ListSMSMessageAdapter(Context mContext, int layoutItemID, ArrayList<SMSMessage> arrListSMSMessage)
+    {
+        this.mContext = mContext;
+        this.layoutItemID = layoutItemID;
+        this.arrListSMSMessage = arrListSMSMessage;
     }
 }
