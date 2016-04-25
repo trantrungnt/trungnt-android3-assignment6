@@ -1,4 +1,4 @@
-# trungnt-android3-assignment6
+﻿# trungnt-android3-assignment6
 ##Yêu cầu
 + Xây dựng Ứng dụng Nhận Tin nhắn 
 + Hiển thị tin nhắn ra ListView
@@ -15,3 +15,4 @@
 
 ##Tham khảo
 + [Receive SMS Message](http://javapapers.com/android/android-receive-sms-tutorial/)
++ [Material Desing Icon](https://materialdesignicons.com/)
