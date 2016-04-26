@@ -30,8 +30,8 @@ public class SMSBroadCastReceiver extends BroadcastReceiver {
 
                 //////////////////////////////////////////////////////////////////////////////////
                 //luu so dien thoai va noi dung tin nhan vua nhan vao SMSMessageManager
-                SMSMessage smsMessage = new SMSMessage(address, smsBody);
-                SMSMessageManager.getInstance().getArrSMSMessage().add(smsMessage);
+                SMSMessage osmsMessage = new SMSMessage(address, smsBody);
+                SMSMessageManager.getInstance().getArrSMSMessage().add(osmsMessage);
 
 
                 ///////////////////////////////////////////////////////////////////////////////////
