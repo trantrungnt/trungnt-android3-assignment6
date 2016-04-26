@@ -15,19 +15,18 @@ import android.widget.Toast;
  * Created by TrungNT on 4/25/2016.
  */
 public class SMSBroadCastReceiver extends BroadcastReceiver {
-    public static String SMS_BUNDLE = "pdus";
-
     @Override
     public void onReceive(Context context, Intent intent) {
-        Bundle intentExtras = intent.getExtras();
-        if (intentExtras != null) {
-            Object[] sms = (Object[]) intentExtras.get(SMS_BUNDLE);
-            String smsMessageStr = "";
-            for (int i = 0; i < sms.length; ++i) {
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            Object[] sms = (Object[]) bundle.get("pdus");
+            for (int i = 0; i < sms.length; i++) {
                 SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) sms[i]);
 
-                String smsBody = smsMessage.getMessageBody().toString();
-                String address = smsMessage.getOriginatingAddress();
+                String smsBody = smsMessage.getDisplayMessageBody();
+                String address = smsMessage.getDisplayOriginatingAddress();
+
+                //Toast.makeText(context, smsBody + " - " + address, Toast.LENGTH_SHORT).show();
 
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
@@ -37,7 +36,7 @@ public class SMSBroadCastReceiver extends BroadcastReceiver {
 
                 Intent resultIntent = new Intent(context, MainActivity.class);
 
-                TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
                 stackBuilder.addParentStack(MainActivity.class);
                 stackBuilder.addNextIntent(resultIntent);
                 PendingIntent resultPendingIntent =
@@ -48,7 +47,7 @@ public class SMSBroadCastReceiver extends BroadcastReceiver {
                 mBuilder.setContentIntent(resultPendingIntent);
                 NotificationManager mNotificationManager =
                         (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                mNotificationManager.notify(9999, mBuilder.build());
+                mNotificationManager.notify(999, mBuilder.build());
             }
         }
     }
