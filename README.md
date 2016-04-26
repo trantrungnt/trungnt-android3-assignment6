@@ -25,6 +25,17 @@
         </receiver>
 ```
 
++  Kết nối giao diện ListView Sms Message và dữ liệu arrSMS Messaage, sau đó hiển thị trên ListView 
+```
+   private void initDisplayListSMSMessage()
+    {
+        ListSMSMessageAdapter listSMSMessageAdapter = new ListSMSMessageAdapter((Context)this, R.layout.sms_message_template, SMSMessageManager.getInstance().getArrSMSMessage());
+        listViewSMSMessage = (ListView) this.findViewById(R.id.lvDisplaySMSList);
+        listViewSMSMessage.setAdapter(listSMSMessageAdapter);
+    }
+
+```
+
 ##Môi trường phát triển
 + Bộ công cụ Android Studio 2.0
 + Máy ảo Genymotion với Hệ điều hành Android version 4.3
