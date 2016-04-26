@@ -26,24 +26,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume()
     {
         super.onResume();
-        //initDisplayListSMSMessage();
+        initDisplayListSMSMessage();
     }
 
     private void initDisplayListSMSMessage()
     {
-//        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-//            @Override
-//            public void onReceive(Context context, Intent intent) {
-//
-//
-//            }
-//        };
 
-        //IntentFilter intentFilter = new IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION);
-        //thong bao cho He thong biet dung SMS_RECEIVED_ACTION de nhan tin nhan thong qua BroadCastReceiver
-        //SMSBroadCastReceiver broadcastReceiver = new SMSBroadCastReceiver();
-        //this.registerReceiver(broadcastReceiver, intentFilter);
-//        ListSMSMessageAdapter listSMSMessageAdapter = new ListSMSMessageAdapter((Context)this, R.layout.activity_main );
     }
 
 }
