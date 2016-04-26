@@ -8,6 +8,23 @@
 + Hiểu về Intent kiểu tường minh và không tường minh
 + Biết sử dụng Broad Receive 
 
+##Chú ý khi code
++ Nhớ cấp quyền READ, WRITE, RECEIVE trong file Manifest.xml để Hệ thống Android biết app của ta được cấp các quyền này và được tác động vào tin SMS
+```
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+```
+
++ Đăng ký cho Hệ thống biết app của ta được phép nhận và xử lý tin nhắn SMS trong file Mainfest.xml
+```
+          <receiver android:name=".SMSBroadCastReceiver" android:exported="true" >
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+```
+
 ##Môi trường phát triển
 + Bộ công cụ Android Studio 2.0
 + Máy ảo Genymotion với Hệ điều hành Android version 4.3
