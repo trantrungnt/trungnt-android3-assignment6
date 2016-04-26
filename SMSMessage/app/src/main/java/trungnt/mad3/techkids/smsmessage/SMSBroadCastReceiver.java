@@ -28,6 +28,14 @@ public class SMSBroadCastReceiver extends BroadcastReceiver {
 
                 //Toast.makeText(context, smsBody + " - " + address, Toast.LENGTH_SHORT).show();
 
+                //////////////////////////////////////////////////////////////////////////////////
+                //luu so dien thoai va noi dung tin nhan vua nhan vao SMSMessageManager
+                SMSMessage smsMessage = new SMSMessage(address, smsBody);
+                SMSMessageManager.getInstance().getArrSMSMessage().add(smsMessage);
+
+
+                ///////////////////////////////////////////////////////////////////////////////////
+                //Hien thi Notification khi nhan duoc tin nhan SMS
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
                                 .setSmallIcon(R.drawable.message)
