@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class ListSMSMessageAdapter extends BaseAdapter {
     private Context mContext;
     private int layoutItemID;
     private SMSMessage oSMSMessage;
+    private ImageView avatar;
 
     @Override
     public int getCount() {
@@ -43,8 +45,17 @@ public class ListSMSMessageAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.sms_message_template, parent, false);
         }
 
+        avatar = (ImageView) convertView.findViewById(R.id.imgAvatar);
         txtPhone = (TextView) convertView.findViewById(R.id.tvPhone);
         txtContentSMSMessage = (TextView) convertView.findViewById(R.id.tvContentSMS);
+
+        if (position%2==0)
+        {
+            avatar.setImageResource(R.drawable.person2);
+        }
+        else
+            avatar.setImageResource(R.drawable.person1);
+
         txtPhone.setText(oSMSMessage.getPhone().toString());
         txtContentSMSMessage.setText(oSMSMessage.getContentSMS().toString());
 

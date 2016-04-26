@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/imgAvatar"
         android:layout_width="@dimen/image_view_width"
         android:layout_height="@dimen/image_view_height" />
 
