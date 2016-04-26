@@ -36,6 +36,53 @@
 
 ```
 
++ Nhận tin nhắn SMS và hiển thị Notification cho người dùng biết có SMS được gửi đến
+```
+ public void onReceive(Context context, Intent intent) {
+        Bundle bundle = intent.getExtras();
+        if (bundle != null) {
+            Object[] sms = (Object[]) bundle.get("pdus");
+            for (int i = 0; i < sms.length; i++) {
+                SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) sms[i]);
+
+                String smsBody = smsMessage.getDisplayMessageBody();
+                String address = smsMessage.getDisplayOriginatingAddress();
+
+                //Toast.makeText(context, smsBody + " - " + address, Toast.LENGTH_SHORT).show();
+
+                //////////////////////////////////////////////////////////////////////////////////
+                //luu so dien thoai va noi dung tin nhan vua nhan vao SMSMessageManager
+                SMSMessage osmsMessage = new SMSMessage(address, smsBody);
+                SMSMessageManager.getInstance().getArrSMSMessage().add(osmsMessage);
+
+
+                ///////////////////////////////////////////////////////////////////////////////////
+                //Hien thi Notification khi nhan duoc tin nhan SMS
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(context)
+                                .setSmallIcon(R.drawable.message)
+                                .setContentTitle(address)
+                                .setContentText(smsBody);
+
+                Intent resultIntent = new Intent(context, MainActivity.class);
+
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+                stackBuilder.addParentStack(MainActivity.class);
+                stackBuilder.addNextIntent(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(
+                                0,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+                mBuilder.setContentIntent(resultPendingIntent);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.notify(999, mBuilder.build());
+            }
+        }
+    }
+```
+
 ##Môi trường phát triển
 + Bộ công cụ Android Studio 2.0
 + Máy ảo Genymotion với Hệ điều hành Android version 4.3
