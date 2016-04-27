@@ -4,6 +4,9 @@
 + Hiển thị tin nhắn ra ListView
 ![BTVN-Ứng dụng Nhận Tin Nhắn](http://i477.photobucket.com/albums/rr132/trungepu/BTVN-2442016-HungTD-Teacher-Message_zpst4hsxmh9.jpg) 
 
++ Cải tiến bài Ứng dụng Nhắn tin như hình dưới đây
+![BTVN-2742016-Receive/SendSMS](http://i477.photobucket.com/albums/rr132/trungepu/BTVN-242016-Receive-SendSMS_zpsvnsoforl.jpg)
+
 ##Cần Kiến thức:
 + Hiểu về Intent kiểu tường minh và không tường minh
 + Biết sử dụng Broad Receive 
