@@ -1,20 +1,13 @@
 package trungnt.mad3.techkids.smsmessage;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.provider.Telephony;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.TaskStackBuilder;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telephony.SmsMessage;
-import android.text.BoringLayout;
+import android.util.Log;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private ListView listViewSMSMessage;
@@ -34,9 +27,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void initDisplayListSMSMessage()
     {
-        ListSMSMessageAdapter listSMSMessageAdapter = new ListSMSMessageAdapter((Context)this, R.layout.sms_message_template, SMSMessageManager.getInstance().getArrSMSMessage());
+//        ArrayList<Message> arrtemp = new ArrayList<>();
+//        Message osmsmessage = new Message();
+//        osmsmessage.setPhone("0");
+//        osmsmessage.setContentSMS("Content body sms");
+//        arrtemp.add(osmsmessage);
+
+        ListSMSMessageAdapter listSMSMessageAdapter = new ListSMSMessageAdapter((Context) this, R.layout.sms_message_template, SMSMessageManager.getOurInstance().getArrSMSMessage());
         listViewSMSMessage = (ListView) this.findViewById(R.id.lvDisplaySMSList);
         listViewSMSMessage.setAdapter(listSMSMessageAdapter);
+
+
     }
 
 }

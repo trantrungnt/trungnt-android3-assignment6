@@ -9,13 +9,13 @@ import java.util.ArrayList;
  */
 public class SMSMessageManager extends Application {
     private static SMSMessageManager ourInstance = new SMSMessageManager();
-    private ArrayList<SMSMessage> arrListSMSMessage = new ArrayList<>();
+    private ArrayList<Message> arrListSMSMessage = new ArrayList<>();
 
-    public ArrayList<SMSMessage> getArrSMSMessage() {
+    public ArrayList<Message> getArrSMSMessage() {
         return arrListSMSMessage;
     }
 
-    public static SMSMessageManager getInstance() {
+    public static SMSMessageManager getOurInstance() {
         return ourInstance;
     }
 

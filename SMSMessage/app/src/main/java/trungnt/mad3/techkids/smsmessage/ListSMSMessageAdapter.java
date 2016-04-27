@@ -15,11 +15,11 @@ import java.util.ArrayList;
  * Created by TrungNT on 4/25/2016.
  */
 public class ListSMSMessageAdapter extends BaseAdapter {
-    private ArrayList<SMSMessage> arrListSMSMessage;
+    private ArrayList<Message> arrListSMSMessage;
+    private int LayoutItemID;
     private TextView txtPhone, txtContentSMSMessage;
     private Context mContext;
-    private int layoutItemID;
-    private SMSMessage oSMSMessage;
+    private Message message;
     private ImageView avatar;
 
     @Override
@@ -28,7 +28,7 @@ public class ListSMSMessageAdapter extends BaseAdapter {
     }
 
     @Override
-    public SMSMessage getItem(int position) {
+    public Message getItem(int position) {
         return arrListSMSMessage.get(position);
     }
 
@@ -39,7 +39,7 @@ public class ListSMSMessageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        oSMSMessage = getItem(position);
+        message = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.sms_message_template, parent, false);
@@ -56,16 +56,19 @@ public class ListSMSMessageAdapter extends BaseAdapter {
         else
             avatar.setImageResource(R.drawable.person1);
 
-        txtPhone.setText(oSMSMessage.getPhone().toString());
-        txtContentSMSMessage.setText(oSMSMessage.getContentSMS().toString());
+        txtPhone.setText(message.getPhone());
+        txtContentSMSMessage.setText(message.getContentSMS());
+
+//        txtPhone.setText("abc");
+//        txtContentSMSMessage.setText("xyx");
 
         return convertView;
     }
 
-    public ListSMSMessageAdapter(Context mContext, int layoutItemID, ArrayList<SMSMessage> arrListSMSMessage)
+    public ListSMSMessageAdapter(Context mContext, int layoutItemID, ArrayList<Message> arrListSMSMessage)
     {
         this.mContext = mContext;
-        this.layoutItemID = layoutItemID;
+        this.LayoutItemID = layoutItemID;
         this.arrListSMSMessage = arrListSMSMessage;
     }
 }

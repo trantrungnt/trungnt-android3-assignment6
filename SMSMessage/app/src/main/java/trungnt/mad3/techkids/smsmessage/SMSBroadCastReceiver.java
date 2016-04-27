@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.telephony.SmsMessage;
+import android.util.Log;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by TrungNT on 4/25/2016.
@@ -30,10 +33,9 @@ public class SMSBroadCastReceiver extends BroadcastReceiver {
 
                 //////////////////////////////////////////////////////////////////////////////////
                 //luu so dien thoai va noi dung tin nhan vua nhan vao SMSMessageManager
-                SMSMessage osmsMessage = new SMSMessage(address, smsBody);
-                SMSMessageManager.getInstance().getArrSMSMessage().add(osmsMessage);
-
-
+                Message omessage = new Message(address, smsBody);
+                SMSMessageManager.getOurInstance().getArrSMSMessage().add(omessage); //tai sao du lieu Null khi lay ra ??????
+                Log.d("4444", String.valueOf(SMSMessageManager.getOurInstance().getArrSMSMessage().size()));
                 ///////////////////////////////////////////////////////////////////////////////////
                 //Hien thi Notification khi nhan duoc tin nhan SMS
                 NotificationCompat.Builder mBuilder =

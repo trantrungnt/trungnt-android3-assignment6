@@ -3,7 +3,7 @@ package trungnt.mad3.techkids.smsmessage;
 /**
  * Created by TrungNT on 4/25/2016.
  */
-public class SMSMessage {
+public class Message {
     public String getPhone() {
         return phone;
     }
@@ -23,13 +23,13 @@ public class SMSMessage {
     private String phone;
     private String ContentSMS;
 
-    private SMSMessage()
+    private Message()
     {
         this.phone = "";
         this.ContentSMS = "";
     }
 
-    public SMSMessage(String phone, String contentSMS)
+    public Message(String phone, String contentSMS)
     {
         this.phone = phone;
         this.ContentSMS = contentSMS;
