@@ -95,3 +95,4 @@
 + [Receive SMS Message](http://javapapers.com/android/android-receive-sms-tutorial/)
 + [Material Desing Icon](https://materialdesignicons.com/)
 + [Cài AVD ở ổ D](http://www.tech-recipes.com/rx/6588/how-to-install-android-sdk-without-internet-connection/)
++ [Tạo và sử dụng SD Card cho AVD](http://code5s.com/di-dong/android/tao-v-su-dung-sd-card-cho-avd.html)
